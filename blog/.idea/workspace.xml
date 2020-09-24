@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8bef35a9-12da-4102-8765-1c3e4593e64f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../leetcode-go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/.idea/wow.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/handler/wow.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/proto/wow.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/proto/wow.pb.micro.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../wow/proto/wow.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/.idea/www.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/generate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/handler/www.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/proto/www.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/proto/www.pb.micro.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../www/proto/www.proto" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="tbr9mjkj" />
+  </component>
+  <component name="ProjectId" id="1hqRNdW8ss0QUmQmhQwx80jYu6Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="520" y="290" key="#Go_Modules" timestamp="1600736607006">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="520" y="290" key="#Go_Modules/0.0.1440.900@0.0.1440.900" timestamp="1600736607006" />
+  </component>
+</project>
