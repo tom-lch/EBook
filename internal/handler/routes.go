@@ -26,5 +26,10 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Path:    "/captch",
 			Handler: userCaptchHandler(serverCtx),
 		},
+		{
+			Method:  http.MethodPost,
+			Path:    "/delete",
+			Handler: userDeleteHandler(serverCtx),
+		},
 	})
 }

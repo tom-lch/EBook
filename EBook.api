@@ -30,6 +30,15 @@ type CaptchaResp struct {
 	PicPath   string `json:"picPath"`
 }
 
+type UserDeleteReq struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type UserDeleteResp struct {
+	Info string `json:"info"`
+}
+
 service EBook-api {
   @server(
     handler: UserRegistry
@@ -45,4 +54,9 @@ service EBook-api {
     handler: UserCaptch
   )
   post /captch(CaptchaReq) returns (CaptchaResp);
+
+  @server(
+    handler: UserDelete
+  )
+  post /delete(UserDeleteReq) returns (UserDeleteResp)
 }

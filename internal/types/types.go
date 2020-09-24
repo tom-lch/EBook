@@ -9,6 +9,15 @@ type CaptchaResp struct {
 	PicPath   string `json:"picPath"`
 }
 
+type UserDeleteReq struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type UserDeleteResp struct {
+	Info string `json:"info"`
+}
+
 type UserLoginReq struct {
 	Username  string `json:"username"`
 	Password  string `json:"password"`
