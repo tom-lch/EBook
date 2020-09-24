@@ -1,0 +1,11 @@
+Name: EBook-api
+Host: 0.0.0.0
+Port: 8888
+
+DBdrive: mysql
+DBsource: root:rootroot@tcp(localhost:3306)/ebook?charset=utf8mb4&parseTime=True&loc=Local
+
+
+CaptchaImgHeight: 80
+CaptchaImgWidth: 30
+CaptchaKeyLong: 6
