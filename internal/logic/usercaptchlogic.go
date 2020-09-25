@@ -29,7 +29,7 @@ func (l *UserCaptchLogic) UserCaptch(req types.CaptchaReq) (*types.CaptchaResp, 
 	// todo: add your logic here and delete this line
 	//字符,公式,验证码配置
 	// 生成默认数字的driver
-	driver := base64Captcha.NewDriverDigit(l.svcCtx.Config.CaptchaImgHeight, l.svcCtx.Config.CaptchaImgWidth, l.svcCtx.Config.CaptchaKeyLong, 0.7, 80)
+	driver := base64Captcha.NewDriverDigit(l.svcCtx.Config.Ct.CaptchaImgHeight, l.svcCtx.Config.Ct.CaptchaImgWidth, l.svcCtx.Config.Ct.CaptchaKeyLong, 0.7, 80)
 	cp := base64Captcha.NewCaptcha(driver, utils.Store)
 	id, b64s, err := cp.Generate()
 	if err != nil {

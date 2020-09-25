@@ -10,7 +10,7 @@ type CaptchaResp struct {
 }
 
 type GetUserInfoReq struct {
-	Username string `json:"string"`
+	Username string `json:"username"`
 }
 
 type GetUserInfoResp struct {

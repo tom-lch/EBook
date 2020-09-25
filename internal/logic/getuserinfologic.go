@@ -24,7 +24,6 @@ func NewGetUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) GetUse
 }
 
 func (l *GetUserInfoLogic) GetUserInfo(req types.GetUserInfoReq) (*types.GetUserInfoResp, error) {
-	// todo: add your logic here and delete this line
 
-	return &types.GetUserInfoResp{}, nil
+	return &types.GetUserInfoResp{NickName: "dfdf", Email: "wef"}, nil
 }

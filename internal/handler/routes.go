@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"EBook/internal/svc"
+	"//internal/svc"
 
 	"github.com/tal-tech/go-zero/rest"
 )
@@ -23,7 +23,7 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 		},
 		{
 			Method:  http.MethodPost,
-			Path:    "/captch",
+			Path:    "/captcha",
 			Handler: userCaptchHandler(serverCtx),
 		},
 		{

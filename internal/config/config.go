@@ -6,9 +6,9 @@ import (
 
 type Config struct {
 	rest.RestConf
-	DataBase
-	JwtAuth
-	Captcha
+	DBs DataBase
+	JA  JwtAuth
+	Ct  Captcha
 }
 
 type Captcha struct {

@@ -63,14 +63,13 @@ func (l *UserLoginLogic) UserLogin(req types.UserLoginReq) (*types.UserLoginResp
 	if err != nil {
 		return nil, err
 	}
-	return &types.UserLoginResp{Username: u.Username, NickName: u.NickName, Token: token, JwtTokenResp:*jwtTokenResp}, nil
+	return &types.UserLoginResp{Username: u.Username, NickName: u.NickName, Token: token, JwtTokenResp: *jwtTokenResp}, nil
 	// return nil, errors.New("验证码错误")
 }
 
-
-func (l *UserLoginLogic) JWT (req types.UserLoginReq) (*types.JwtTokenResp, error) {
-	var accessExpire = l.svcCtx.Config.JwtAuth.AccessExpire
-	var accessSecret = l.svcCtx.Config.JwtAuth.AccessSecret
+func (l *UserLoginLogic) JWT(req types.UserLoginReq) (*types.JwtTokenResp, error) {
+	var accessExpire = l.svcCtx.Config.JA.AccessExpire
+	var accessSecret = l.svcCtx.Config.JA.AccessSecret
 	now := time.Now().Unix()
 	payloads := map[string]interface{}{
 		"iss": req.Username,
@@ -83,12 +82,11 @@ func (l *UserLoginLogic) JWT (req types.UserLoginReq) (*types.JwtTokenResp, erro
 	}
 	// 将刷新时间设置为过期直接的一半
 	return &types.JwtTokenResp{
-		AccessToken: accessToken,
+		AccessToken:  accessToken,
 		AccessExpire: now + accessExpire,
 		RefreshAfter: now + accessExpire/2,
 	}, nil
 }
-
 
 func (l *UserLoginLogic) genToken(iat int64, secret string, payloads map[string]interface{}, seconds int64) (string, error) {
 	// 生成token遵循jwt的生成规则，将 header、payload使用base64进行编码，然后用secert经SHA256分别生成token
@@ -99,7 +97,12 @@ func (l *UserLoginLogic) genToken(iat int64, secret string, payloads map[string]
 	for k, v := range payloads {
 		Claims[k] = v
 	}
-	token := jwt.New(jwt.SigningMethodES256)
+	token := jwt.New(jwt.SigningMethodHS256)
 	token.Claims = Claims
-	return token.SignedString([]byte(secret))
+	tokenString, err := token.SignedString([]byte(secret))
+	if err != nil {
+		logx.Error("token.SignedString 出错", err, secret)
+		return "", err
+	}
+	return tokenString, nil
 }

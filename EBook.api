@@ -48,7 +48,7 @@ type JwtTokenResp struct {
 }
 
 type GetUserInfoReq struct {
-	Username string `json:"string"`
+	Username string `json:"username"`
 }
 
 type GetUserInfoResp struct {
@@ -70,7 +70,7 @@ service EBook-api {
   @server(
     handler: UserCaptch
   )
-  post /captch(CaptchaReq) returns (CaptchaResp);
+  post /captcha(CaptchaReq) returns (CaptchaResp);
 
   @server(
     handler: UserDelete

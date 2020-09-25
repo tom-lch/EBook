@@ -2,15 +2,15 @@ Name: EBook-api
 Host: 0.0.0.0
 Port: 8888
 
-DataBase:
+DBs:
   DBdrive: mysql
   DBsource: root:rootroot@tcp(localhost:3306)/ebook?charset=utf8mb4&parseTime=True&loc=Local
 
-Captcha:
+Ct:
   CaptchaImgHeight: 80
   CaptchaImgWidth: 30
   CaptchaKeyLong: 6
 
-JwtAuth:
-  AccessSecret: d35c79f7ff106fe38a0803881acb0
+JA:
+  AccessSecret: 238y23423df7ery23dhwefh2387
   AccessExpire: 604800
