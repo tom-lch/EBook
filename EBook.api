@@ -18,10 +18,12 @@ type UserLoginReq struct {
 	Captcha   string `json:"captcha"`
 	CaptchaId string `json:"captchaId"`
 }
+
 type UserLoginResp struct {
 	Username string `json:"username"`
 	NickName string `json:"nickName"`
 	token    string `json:"token"`
+	JwtTokenResp
 }
 
 type CaptchaReq struct{}
@@ -37,6 +39,21 @@ type UserDeleteReq struct {
 
 type UserDeleteResp struct {
 	Info string `json:"info"`
+}
+
+type JwtTokenResp struct {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+	RefreshAfter int64  `json:"refreshAfter"`
+}
+
+type GetUserInfoReq struct {
+	Username string `json:"string"`
+}
+
+type GetUserInfoResp struct {
+	NickName string `json:"nickName"`
+	Email    string `json:"email"`
 }
 
 service EBook-api {
@@ -59,4 +76,16 @@ service EBook-api {
     handler: UserDelete
   )
   post /delete(UserDeleteReq) returns (UserDeleteResp)
+}
+
+
+@server(
+    jwt:JwtAuth
+)
+
+service EBook-api {
+    @server(
+    handler: GetUserInfo
+    )
+    post /user/info(GetUserInfoReq) returns (GetUserInfoResp)
 }

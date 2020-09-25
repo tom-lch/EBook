@@ -32,4 +32,12 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Handler: userDeleteHandler(serverCtx),
 		},
 	})
+
+	engine.AddRoutes([]rest.Route{
+		{
+			Method:  http.MethodPost,
+			Path:    "/user/info",
+			Handler: getUserInfoHandler(serverCtx),
+		},
+	})
 }

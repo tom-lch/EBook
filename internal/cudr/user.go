@@ -34,7 +34,6 @@ func Login(u *model.User, DB *gorm.DB) (*model.User, error) {
 	return user, nil
 }
 
-
 func Delete(u *model.User, DB *gorm.DB) error {
 	user := &model.User{}
 	u.Password = utils.SHA256(u.Password)

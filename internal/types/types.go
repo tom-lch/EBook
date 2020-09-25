@@ -9,6 +9,21 @@ type CaptchaResp struct {
 	PicPath   string `json:"picPath"`
 }
 
+type GetUserInfoReq struct {
+	Username string `json:"string"`
+}
+
+type GetUserInfoResp struct {
+	NickName string `json:"nickName"`
+	Email    string `json:"email"`
+}
+
+type JwtTokenResp struct {
+	AccessToken  string `json:"accessToken"`
+	AccessExpire int64  `json:"accessExpire"`
+	RefreshAfter int64  `json:"refreshAfter"`
+}
+
 type UserDeleteReq struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
@@ -29,6 +44,7 @@ type UserLoginResp struct {
 	Username string `json:"username"`
 	NickName string `json:"nickName"`
 	Token    string `json:"token"`
+	JwtTokenResp
 }
 
 type UserRegistryReq struct {

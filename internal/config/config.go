@@ -6,9 +6,23 @@ import (
 
 type Config struct {
 	rest.RestConf
-	DBdrive          string
-	DBsource         string
+	DataBase
+	JwtAuth
+	Captcha
+}
+
+type Captcha struct {
 	CaptchaImgHeight int
 	CaptchaImgWidth  int
 	CaptchaKeyLong   int
+}
+
+type DataBase struct {
+	DBdrive  string
+	DBsource string
+}
+
+type JwtAuth struct {
+	AccessSecret string
+	AccessExpire int64
 }

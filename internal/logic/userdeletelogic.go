@@ -42,5 +42,5 @@ func (l *UserDeleteLogic) UserDelete(req types.UserDeleteReq) (*types.UserDelete
 	if err := cudr.Delete(u, l.svcCtx.DB); err != nil {
 		return nil, err
 	}
-	return &types.UserDeleteResp{Info: req.Username+",用户删除道成功"}, nil
+	return &types.UserDeleteResp{Info: req.Username + ",用户删除道成功"}, nil
 }
