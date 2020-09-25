@@ -27,7 +27,7 @@ type JwtTokenResp struct {
 type UpdataSecertReq struct {
 	Username    string `json:"username"`
 	Password    string `json:"password"`
-	NewPassword string `json:"password"`
+	NewPassword string `json:"newPassword"`
 }
 
 type UpdataSecertResp struct {

@@ -55,13 +55,10 @@ func GetUserInfo(u *model.User, DB *gorm.DB) (*model.User, error) {
 }
 
 
-func UpdateSecert(u *model.User, newp string, DB *gorm.DB) (*model.User, error) {
-	user := &model.User{}
-	u.Password = utils.SHA256(u.Password)
-	newp = utils.SHA256(newp)
-	if err := DB.Model(user).Where("username=? AND password=?", u.NickName, u.Password).Update("password", newp).Error; err != nil {
-		return nil, err
+func UpdateSecert(u *model.User, newp string, DB *gorm.DB) error {
+	user := &model.User{Username: u.Username, Password: utils.SHA256(u.Password)}
+	if err := DB.Model(user).Where("username = ? AND password=?", u.Username, utils.SHA256(u.Password)).Updates(map[string]interface{}{"password": utils.SHA256(newp)}).Error; err != nil {
+		return err
 	}
-	user.Password = newp
-	return user, nil
+	return nil
 }

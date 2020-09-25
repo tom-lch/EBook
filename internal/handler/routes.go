@@ -44,5 +44,5 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Path:    "/updatasecert",
 			Handler: updataUserSecertHandler(serverCtx),
 		},
-	})
+	}, rest.WithJwt(serverCtx.Config.JA.AccessSecret))
 }
