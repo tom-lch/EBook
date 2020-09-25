@@ -94,6 +94,7 @@ type BookDetailResp struct {
 	Version     string `json:"version"`
 	Cover       string `json:"cover"`
 	BookAllname string `json:"bookAllname"`
+	StoreAddr   string `json:"storeAddr"`
 }
 
 type BookRoughResp struct {
@@ -165,7 +166,7 @@ service EBook-api {
   @server(
   handler: DownloadBook
   )
-  get /download/book(BookDetailReq) returns (BookUploadResp)
+  get /download/book(BookDetailReq) returns (BookDetailResp)
 
   @server(
   handler: GetBookByCount

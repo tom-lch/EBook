@@ -1,6 +1,7 @@
 package logic
 
 import (
+	"EBook/internal/cudr"
 	"context"
 
 	"EBook/internal/svc"
@@ -25,6 +26,11 @@ func NewGetBookByCountLogic(ctx context.Context, svcCtx *svc.ServiceContext) Get
 
 func (l *GetBookByCountLogic) GetBookByCount(req types.BookCountReq) (*types.BookCountResp, error) {
 	// todo: add your logic here and delete this line
-
-	return &types.BookCountResp{}, nil
+	// 根据Count获取book list
+	count := req.Count
+	lists, err := cudr.GetCountBooks(count, l.svcCtx.DB)
+	if err != nil {
+		return nil, err
+	}
+	return &types.BookCountResp{Lists: lists}, nil
 }

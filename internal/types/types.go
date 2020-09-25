@@ -6,7 +6,7 @@ type BookCountReq struct {
 }
 
 type BookCountResp struct {
-	BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+	Lists  interface{} //BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
 }
 
 type BookDetailReq struct {
@@ -24,6 +24,7 @@ type BookDetailResp struct {
 	Version     string `json:"version"`
 	Cover       string `json:"cover"`
 	BookAllname string `json:"bookAllname"`
+	StoreAddr   string `json:"storeAddr"`
 }
 
 type BookPagetReq struct {
@@ -32,7 +33,7 @@ type BookPagetReq struct {
 }
 
 type BookPagetResp struct {
-	BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+	Lists interface{}//BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
 }
 
 type BookRoughResp struct {
