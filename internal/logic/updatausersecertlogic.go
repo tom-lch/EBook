@@ -1,6 +1,7 @@
 package logic
 
 import (
+	jwtAuth "EBook/pkg/jwt"
 	"context"
 	
 	"EBook/internal/cudr"
@@ -35,9 +36,14 @@ func (l *UpdataUserSecertLogic) UpdataUserSecert(req types.UpdataSecertReq) (*ty
 		return nil, err
 	}
 	// 改过密码之后重新生成token
-	//jwtTokenResp, err := jwtAuth.JWT(l.svcCtx.Config.JA.AccessExpire, l.svcCtx.Config.JA.AccessSecret)
-	//if err != nil {
-	//	return nil, err
-	//}
-	return &types.UpdataSecertResp{Username: u.Username}, nil
+	jwtTokenResp, err := jwtAuth.JWT(l.svcCtx.Config.JA.AccessExpire, l.svcCtx.Config.JA.AccessSecret)
+	if err != nil {
+		return nil, err
+	}
+	// 无误之后生成resp
+	resp := &types.UpdataSecertResp{
+		Username: req.Username,
+		JwtTokenResp: *jwtTokenResp,
+	}
+	return resp, nil
 }
