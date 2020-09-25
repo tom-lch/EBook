@@ -27,6 +27,11 @@ func NewServiceContext(c config.Config) *ServiceContext {
 		logx.Error("connect mysql failed, err:", err)
 	}
 	// 在返回前在在数据库中建表，即迁移模型到数据库中建表
-	DB.AutoMigrate(&model.User{})
+	DB.AutoMigrate(
+		&model.User{},
+		&model.Ebook{},
+		&model.Ebook{},
+		&model.UserDownBook{},
+		&model.UserUpBook{})
 	return &ServiceContext{Config: c, DB: DB}
 }

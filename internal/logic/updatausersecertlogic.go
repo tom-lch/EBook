@@ -3,10 +3,10 @@ package logic
 import (
 	jwtAuth "EBook/pkg/jwt"
 	"context"
-	
+
 	"EBook/internal/cudr"
 	"EBook/internal/model"
-	
+
 	"EBook/internal/svc"
 	"EBook/internal/types"
 
@@ -42,7 +42,7 @@ func (l *UpdataUserSecertLogic) UpdataUserSecert(req types.UpdataSecertReq) (*ty
 	}
 	// 无误之后生成resp
 	resp := &types.UpdataSecertResp{
-		Username: req.Username,
+		Username:     req.Username,
 		JwtTokenResp: *jwtTokenResp,
 	}
 	return resp, nil

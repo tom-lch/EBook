@@ -66,6 +66,60 @@ type UpdataSecertResp struct {
 	JwtTokenResp
 }
 
+// 上传图书
+type BookUploadReq struct {
+	BookDetailResp
+}
+type BookUploadResp struct {
+	BookId   uint   `json:"bookid"`
+	Bookname string `json:"bookname"`
+	Status   string `json:"status"`
+	Code     string `json:"code"`
+}
+
+// 下载图书
+
+type BookDetailReq struct {
+	Bookname string `json:"bookname"`
+	BookId   uint   `json:"bookid"`
+}
+
+type BookDetailResp struct {
+	BookId      uint   `json:"bookid"`
+	Bookname    string `json:"bookname"`
+	Author      string `json:"author"`
+	Uploader    string `json:"uploader"`
+	Publisher   string `json:"publisher"`
+	PublishDate string `json:"publishDate"`
+	Version     string `json:"version"`
+	Cover       string `json:"cover"`
+	BookAllname string `json:"bookAllname"`
+}
+
+type BookRoughResp struct {
+	Bookname    string `json:"bookname"`
+	Author      string `json:"author"`
+	Version     string `json:"version"`
+	Cover       string `json:"cover"`
+	BookAllname string `json:"bookAllname"`
+}
+
+type BookCountReq struct {
+	Count int `json:"count"`
+}
+type BookCountResp struct {
+	BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+}
+
+type BookPagetReq struct {
+	Page     int `json:"page"`
+	PageSize int `json:"pageSize"`
+}
+
+type BookPagetResp struct {
+	BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+}
+
 service EBook-api {
   @server(
     handler: UserRegistry
@@ -102,4 +156,24 @@ service EBook-api {
   handler: UpdataUserSecert
   )
   put /updatasecert(UpdataSecertReq) returns (UpdataSecertResp)
+
+  @server(
+  handler: UploadBook
+  )
+  post /upload/book(BookUploadReq) returns (BookUploadResp)
+
+  @server(
+  handler: DownloadBook
+  )
+  get /download/book(BookDetailReq) returns (BookUploadResp)
+
+  @server(
+  handler: GetBookByCount
+  )
+  get /book/count(BookCountReq) returns (BookCountResp)
+
+  @server(
+  handler: GetBookByPage
+  )
+  get /book/page(BookPagetReq) returns (BookPagetResp)
 }

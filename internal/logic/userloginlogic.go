@@ -65,4 +65,3 @@ func (l *UserLoginLogic) UserLogin(req types.UserLoginReq) (*types.UserLoginResp
 	return &types.UserLoginResp{Username: u.Username, NickName: u.NickName, Token: token, JwtTokenResp: *jwtTokenResp}, nil
 	// return nil, errors.New("验证码错误")
 }
-

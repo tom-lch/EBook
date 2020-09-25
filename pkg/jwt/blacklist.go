@@ -12,7 +12,6 @@ func Isinblacklist(token string) bool {
 	return true
 }
 
-
 func ClearList() {
 	for {
 		for k, v := range Blacklist {
@@ -20,7 +19,6 @@ func ClearList() {
 				delete(Blacklist, k)
 			}
 		}
-		time.Sleep(60*time.Second)
+		time.Sleep(60 * time.Second)
 	}
 }
-

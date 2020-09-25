@@ -54,13 +54,12 @@ func GetUserInfo(u *model.User, DB *gorm.DB) (*model.User, error) {
 	return user, nil
 }
 
-
 func UpdateSecert(u *model.User, newp string, DB *gorm.DB) error {
 	user := &model.User{}
 	if err := DB.Where("username=? AND password=?", u.Username, utils.SHA256(u.Password)).First(user).Error; err != nil {
 		return errors.New("用户名或密码错误")
 	}
-	if err := DB.Model(user).Where("username = ? AND password=?", u.Username, utils.SHA256(u.Password)).Updates(map[string]interface{}{"password": utils.SHA256(newp)}).Error; err != nil {
+	if err := DB.Model(user).Updates(map[string]interface{}{"password": utils.SHA256(newp)}).Error; err != nil {
 		return errors.New("更新密码出错")
 	}
 	return nil

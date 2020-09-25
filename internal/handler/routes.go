@@ -44,5 +44,25 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Path:    "/updatasecert",
 			Handler: updataUserSecertHandler(serverCtx),
 		},
+		{
+			Method:  http.MethodPost,
+			Path:    "/upload/book",
+			Handler: uploadBookHandler(serverCtx),
+		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/download/book",
+			Handler: downloadBookHandler(serverCtx),
+		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/book/count",
+			Handler: getBookByCountHandler(serverCtx),
+		},
+		{
+			Method:  http.MethodGet,
+			Path:    "/book/page",
+			Handler: getBookByPageHandler(serverCtx),
+		},
 	}, rest.WithJwt(serverCtx.Config.JA.AccessSecret))
 }
