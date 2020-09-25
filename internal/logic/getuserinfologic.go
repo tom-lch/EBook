@@ -1,6 +1,8 @@
 package logic
 
 import (
+	"EBook/internal/cudr"
+	"EBook/internal/model"
 	"context"
 
 	"EBook/internal/svc"
@@ -24,6 +26,11 @@ func NewGetUserInfoLogic(ctx context.Context, svcCtx *svc.ServiceContext) GetUse
 }
 
 func (l *GetUserInfoLogic) GetUserInfo(req types.GetUserInfoReq) (*types.GetUserInfoResp, error) {
-
-	return &types.GetUserInfoResp{NickName: "dfdf", Email: "wef"}, nil
+	// 在jwt认证的情况下，使用用户访问数据库获取用户信息
+	u := &model.User{Username: req.Username}
+	user, err := cudr.GetUserInfo(u, l.svcCtx.DB)
+	if err != nil {
+		return nil, err
+	}
+	return &types.GetUserInfoResp{NickName: user.Username + user.NickName, Email: user.Email}, nil
 }

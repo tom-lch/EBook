@@ -56,6 +56,16 @@ type GetUserInfoResp struct {
 	Email    string `json:"email"`
 }
 
+type UpdataSecertReq struct {
+	Username    string `json:"username"`
+	Password    string `json:"password"`
+	NewPassword string `json:"password"`
+}
+type UpdataSecertResp struct {
+	Username string `json:"username"`
+	JwtTokenResp
+}
+
 service EBook-api {
   @server(
     handler: UserRegistry
@@ -80,12 +90,16 @@ service EBook-api {
 
 
 @server(
-    jwt:JwtAuth
+  jwt:JwtAuth
 )
-
 service EBook-api {
-    @server(
-    handler: GetUserInfo
-    )
-    post /user/info(GetUserInfoReq) returns (GetUserInfoResp)
+  @server(
+  handler: GetUserInfo
+  )
+  post /user/info(GetUserInfoReq) returns (GetUserInfoResp)
+
+  @server(
+  handler: UpdataUserSecert
+  )
+  put /updatasecert(UpdataSecertReq) returns (UpdataSecertResp)
 }

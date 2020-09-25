@@ -24,6 +24,17 @@ type JwtTokenResp struct {
 	RefreshAfter int64  `json:"refreshAfter"`
 }
 
+type UpdataSecertReq struct {
+	Username    string `json:"username"`
+	Password    string `json:"password"`
+	NewPassword string `json:"password"`
+}
+
+type UpdataSecertResp struct {
+	Username string `json:"username"`
+	JwtTokenResp
+}
+
 type UserDeleteReq struct {
 	Username string `json:"username"`
 	Password string `json:"password"`

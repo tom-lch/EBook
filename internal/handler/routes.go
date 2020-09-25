@@ -39,5 +39,10 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Path:    "/user/info",
 			Handler: getUserInfoHandler(serverCtx),
 		},
+		{
+			Method:  http.MethodPut,
+			Path:    "/updatasecert",
+			Handler: updataUserSecertHandler(serverCtx),
+		},
 	})
 }

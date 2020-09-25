@@ -43,3 +43,25 @@ func Delete(u *model.User, DB *gorm.DB) error {
 	}
 	return nil
 }
+
+func GetUserInfo(u *model.User, DB *gorm.DB) (*model.User, error) {
+	user := &model.User{}
+	if err := DB.Where("username=?", u.Username).
+		Select("username", "nick_name", "email").
+		First(user).Error; err != nil {
+		return nil, err
+	}
+	return user, nil
+}
+
+
+func UpdateSecert(u *model.User, newp string, DB *gorm.DB) (*model.User, error) {
+	user := &model.User{}
+	u.Password = utils.SHA256(u.Password)
+	newp = utils.SHA256(newp)
+	if err := DB.Model(user).Where("username=? AND password=?", u.NickName, u.Password).Update("password", newp).Error; err != nil {
+		return nil, err
+	}
+	user.Password = newp
+	return user, nil
+}
