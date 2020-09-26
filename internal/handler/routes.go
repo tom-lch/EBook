@@ -64,5 +64,10 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			Path:    "/book/page",
 			Handler: getBookByPageHandler(serverCtx),
 		},
-	}, rest.WithJwt(serverCtx.Config.JA.AccessSecret))
+		{
+			Method:  http.MethodGet,
+			Path:    "/book/totalc",
+			Handler: getBookTotalCHandler(serverCtx),
+		},
+	})
 }

@@ -6,7 +6,7 @@ type BookCountReq struct {
 }
 
 type BookCountResp struct {
-	Lists  interface{} //BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+	Lists interface{} //BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
 }
 
 type BookDetailReq struct {
@@ -61,6 +61,13 @@ type CaptchaReq struct {
 type CaptchaResp struct {
 	CaptchaId string `json:"captchaId"`
 	PicPath   string `json:"picPath"`
+}
+
+type GetBookTotalcReq struct {
+}
+
+type GetBookTotalcResp struct {
+	Count int `json:"count"`
 }
 
 type GetUserInfoReq struct {

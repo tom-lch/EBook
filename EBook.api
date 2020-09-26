@@ -109,7 +109,12 @@ type BookCountReq struct {
 	Count int `json:"count"`
 }
 type BookCountResp struct {
-	BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+	Lists interface{} //BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+}
+type GetBookTotalcReq struct{}
+
+type GetBookTotalcResp struct {
+	Count int `json:"count"`
 }
 
 type BookPagetReq struct {
@@ -118,7 +123,7 @@ type BookPagetReq struct {
 }
 
 type BookPagetResp struct {
-	BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
+	Lists interface{} //BookDetailCount []*BookRoughResp `json:"BookRoughResp"`
 }
 
 service EBook-api {
@@ -177,4 +182,9 @@ service EBook-api {
   handler: GetBookByPage
   )
   get /book/page(BookPagetReq) returns (BookPagetResp)
+
+  @server(
+  handler: GetBookTotalC
+  )
+  get /book/totalc(GetBookTotalcReq) returns (GetBookTotalcResp)
 }

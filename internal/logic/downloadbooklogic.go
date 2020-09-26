@@ -29,16 +29,15 @@ func (l *DownloadBookLogic) DownloadBook(req types.BookDetailReq) (*types.BookDe
 	// 根据书名和id获取下载链接
 	bookname := req.Bookname
 	bookid := req.BookId
-	book, err :=cudr.DownloadBookByID(bookname, bookid, l.svcCtx.DB)
+	book, err := cudr.DownloadBookByID(bookname, bookid, l.svcCtx.DB)
 	if err != nil {
 		return nil, err
 	}
 	resp := &types.BookDetailResp{
-		Bookname: book.Bookname,
-		BookId: book.ID,
-		Author: book.Author,
-		Uploader: book.Uploader,
-		Cover: book.Cover,
+		Bookname:  book.Bookname,
+		Author:    book.Author,
+		Uploader:  book.Uploader,
+		Cover:     book.Cover,
 		StoreAddr: book.StoreAddr,
 	}
 	return resp, nil

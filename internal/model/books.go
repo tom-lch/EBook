@@ -1,7 +1,7 @@
 package model
 
 import (
-	uuid "github.com/satori/go.uuid"
+	"github.com/satori/go.uuid"
 	"gorm.io/gorm"
 )
 

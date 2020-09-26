@@ -33,10 +33,10 @@ func (l *UploadBookLogic) UploadBook(req types.BookUploadReq) (*types.BookUpload
 		return nil, err
 	}
 	resp := &types.BookUploadResp{
-		BookId   : req.BookId,
-		Bookname : req.Bookname,
-		Status   : "OK",
-		Code     : "1",
+		BookId:   req.BookId,
+		Bookname: req.Bookname,
+		Status:   "OK",
+		Code:     "1",
 	}
 	return resp, nil
 }
